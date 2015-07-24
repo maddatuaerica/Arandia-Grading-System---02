@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head>
+  <title>Arandia College</title>
+  <meta name="description" content="free website template" />
+  <meta name="keywords" content="enter your keywords here" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+  <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider();
+    });
+  </script>
+</head>
+
+<body>
+  <div id="main">	
+	<div id="site_content">
+      <div id="site_heading">
+	    <h1>Arandia College</h1>	
+	  </div><!--close site_heading-->
+	  <div id="header">
+	    <div id="menubar">
+          <ul id="menu">
+            <li class="current"><a href="index.html">Home</a></li>
+            <li><a href="ourwork.html">Logout</a></li>
+            <li><a href="testimonials.html">About Us</a></li>
+            <li><a href="projects.html">Events</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div><!--close menubar-->
+      </div><!--close header-->	  
+	  <div id="banner_image">
+	    
+	  </div><!--close banner_image-->			  
+	  <div id="content"><center>
+        <?php
+
+define('DB_NAME', 'ac');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_HOST', 'localhost');
+
+$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+
+if(!$link) {
+	die('Could not connect: ' . mysql_error());
+	}
+	
+$db_selected = mysql_select_db(DB_NAME, $link);
+
+if (!$db_selected) {
+	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
+	}
+	
+$user=$_POST['user'];
+	
+$sql = "SELECT * FROM student WHERE user='$user' ";
+
+
+?>
+<table border="1">
+<?php
+
+ 
+  $result = mysql_query($sql);
+
+
+while($row = mysql_fetch_array($result)) {
+  echo "<table border=\"1\">";
+  echo "<tr>";
+  echo "<th><font color = \"blue\" >Student Id:</th>";
+  echo "<td><font color = \"blue\" >" . $row['stud_id'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Last Name:</th>";
+  echo "<td><font color = \"blue\" >" . $row['lname'] . "</td><tr>";
+  echo "<th><font color = \"blue\" >Firstname</th>";
+  echo "<td><font color = \"blue\" >" . $row['fname'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Middle Name:</th>";
+  echo "<td><font color = \"blue\" >" . $row['mname'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Address:</th>";
+  echo "<td><font color = \"blue\" >" . $row['addr'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Birthday:</th>";
+  echo "<td><font color = \"blue\" >" . $row['bday'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Birth place:</th>";
+  echo "<td><font color = \"blue\" >" . $row['bplace'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Sex:</th>";
+  echo "<td><font color = \"blue\" >" . $row['sex'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Age:</th>";
+  echo "<td><font color = \"blue\" >" . $row['age'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Contact Number:</th>";
+  echo "<td><font color = \"blue\" >" . $row['tel'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Grade/Year Level:</th>";
+  echo "<td><font color = \"blue\" >" . $row['level'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Previous School:</th>";
+  echo "<td><font color = \"blue\" >" . $row['prevschl'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Father Name:</th>";
+  echo "<td><font color = \"blue\" >" . $row['father'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Occupation:</th>";
+  echo "<td><font color = \"blue\" >" . $row['foccu'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Mother Name:</th>";
+  echo "<td><font color = \"blue\" >" . $row['mother'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Occupation:</th>";
+  echo "<td><font color = \"blue\" >" . $row['moccu'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Guardian Name:</th>";
+  echo "<td><font color = \"blue\" >" . $row['gname'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Relationship:</th>";
+  echo "<td><font color = \"blue\" >" . $row['grel'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Contact Number:</th>";
+  echo "<td><font color = \"blue\" >" . $row['gtel'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Mode of Payment:</th>";
+  echo "<td><font color = \"blue\" >" . $row['MOP'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Username:</th>";
+  echo "<td><font color = \"blue\" >" . $row['user'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Password:</th>";
+  echo "<td><font color = \"blue\" >" . $row['pass'] . "</td></tr>";
+  echo "<th><font color = \"blue\" >Usertype:</th>";
+  echo "<td><font color = \"blue\" >" . $row['usertype'] . "</td></tr>";
+  echo "</tr></table>";
+}
+?>
+
+<!--next table-->
+<table border="1"><br><br>
+<?php
+
+define('DB_NAME', 'ac');
+define('DB_USER', 'root');
+define('DB_PASSWORD', '');
+define('DB_HOST', 'localhost');
+
+$link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+
+if(!$link) {
+	die('Could not connect: ' . mysql_error());
+	}
+	
+$db_selected = mysql_select_db(DB_NAME, $link);
+
+if (!$db_selected) {
+	die('Can\'t use ' . DB_NAME . ': ' . mysql_error());
+	}
+	
+
+$sql = "SELECT * FROM grade ";
+
+  
+  
+ $result = mysql_query($sql);
+echo "<table border=\"1\">";
+echo "<tr>
+<th><font color=\"black\">grade id</th>
+<th><font color=\"black\">Subject Code</th>
+<th><font color=\"black\">1st Grading</th>
+<th><font color=\"black\">2nd Grading</th>
+<th><font color=\"black\">3rd Grading</th>
+<th><font color=\"black\">4th Grading</th>
+<th><font color=\"black\">Final Grade</th>
+<th><font color=\"black\">Student ID</th>
+</tr>";
+
+while($row = mysql_fetch_array($result)) {
+  echo "<tr>";
+  echo "<td><font color=\"black\">" . $row['gr_id'] . "</td>";
+  echo "<td><font color=\"black\">" . $row['subj_code'] . "</td>";
+   echo "<td><font color=\"black\">" . $row['1st'] . "</td>";
+  echo "<td><font color=\"black\">" . $row['2nd'] . "</td>";
+  echo "<td><font color=\"black\">" . $row['3rd'] . "</td>";
+  echo "<td><font color=\"black\">" . $row['4th'] . "</td>";
+  echo "<td><font color=\"black\">" . $row['final'] . "</td>";
+   echo "<td><font color=\"black\">" . $row['stud_id'] . "</td>";	
+ 
+  echo "</tr>";
+}
+
+echo "</table>";
+
+  
+?>
+</p>
+</div></div>
+      </div><!--close content-->	
+
+     
+	</div><!--close site_content-->	
+    <div id="footer">  
+      All Rights Reserve | Project of Group 203
+	  </div><!--close footer-->		
+  </div><!--close main-->	
+</body>
+</html>
