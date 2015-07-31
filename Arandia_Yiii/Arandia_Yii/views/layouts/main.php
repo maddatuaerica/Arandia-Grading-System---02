@@ -26,7 +26,8 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'Arandia College',
+                'brandLabel' => '<img class="logo" src="arandia logo.png" width="100px">',
+                'brandLabel' => '<img class="logo" src="arandia logo.png" width="100px">',
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
