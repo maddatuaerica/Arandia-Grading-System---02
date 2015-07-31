@@ -32,7 +32,7 @@ $this->title = 'Arandia College';
 						<p>G.	Commit the school as leading institution in the society.</p></p>
             </div>
             <div class="col-lg-4">
-                <h2>Offfers:</h2>
+                <h2>Offers:</h2>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip

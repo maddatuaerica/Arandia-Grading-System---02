@@ -1,7 +1,9 @@
 html,
 body {
     height: 100%;
-	background: #A5E0FF;
+	background: #006699;
+	color: #FFFFFF;
+	font-family: Cursive;
 }
 
 .wrap {
